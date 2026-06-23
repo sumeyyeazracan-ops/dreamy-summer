@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreamy Weather - Rüya Gibi Hava Durumu</title>
+    <link rel="stylesheet" href="weather-style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🌙 Dreamy Weather</div>
+            <ul class="nav-links">
+                <li><a href="index.html">← Geri Dön</a></li>
+                <li><a href="#weather">Hava Durumu</a></li>
+                <li><a href="#forecast">Tahmin</a></li>
+                <li><a href="#tips">İpuçları</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <h1>🌤️ Rüya Gibi Hava Durumu</h1>
+            <p>Şehrin havasını öğren ve günü planla ✨</p>
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Şehir adı yazın... (örn: İstanbul, Paris)"
+                    class="search-input"
+                >
+                <button id="searchBtn" class="search-btn">🔍 Ara</button>
+            </div>
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+    </section>
+
+    <!-- Current Weather Section -->
+    <section id="weather" class="current-weather">
+        <div class="container">
+            <div id="loadingSpinner" class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Hava durumu yükleniyor... 🌙</p>
+            </div>
+            
+            <div id="weatherContent" class="weather-content" style="display: none;">
+                <div class="weather-main">
+                    <div class="weather-info">
+                        <h2 id="cityName"></h2>
+                        <p id="weatherDescription" class="weather-description"></p>
+                        <div class="temperature-display">
+                            <span id="temperature" class="temperature"></span>
+                            <span class="degree">°C</span>
+                        </div>
+                        <p id="feelsLike" class="feels-like"></p>
+                    </div>
+                    <div class="weather-icon-large">
+                        <div id="weatherEmoji" class="emoji-display">🌤️</div>
+                    </div>
+                </div>
+
+                <!-- Weather Details Grid -->
+                <div class="weather-details">
+                    <div class="detail-card">
+                        <div class="detail-icon">💧</div>
+                        <h3>Nem</h3>
+                        <p id="humidity" class="detail-value">--%</p>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-icon">💨</div>
+                        <h3>Rüzgar</h3>
+                        <p id="windSpeed" class="detail-value">-- km/h</p>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-icon">🧭</div>
+                        <h3>Basınç</h3>
+                        <p id="pressure" class="detail-value">-- hPa</p>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-icon">👁️</div>
+                        <h3>Görüş</h3>
+                        <p id="visibility" class="detail-value">-- km</p>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-icon">☀️</div>
+                        <h3>UV İndeksi</h3>
+                        <p id="uvIndex" class="detail-value">--</p>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-icon">🌅</div>
+                        <h3>Günbatımı</h3>
+                        <p id="sunset" class="detail-value">--:--</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forecast Section -->
+    <section id="forecast" class="forecast-section">
+        <div class="container">
+            <h2>5 Günlük Tahmin 🌈</h2>
+            <div id="forecastContent" class="forecast-grid">
+                <div class="forecast-placeholder">Hava durumu yüklendiğinde tahmin gösterilecek...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section id="tips" class="tips-section">
+        <div class="container">
+            <h2>Hava Durumuna Göre İpuçları 💡</h2>
+            <div id="tipsContent" class="tips-grid">
+                <div class="tip-card">
+                    <h3>☀️ Güneşli Günler</h3>
+                    <p>SPF güneş kremi kullan ve çok su iç! Hafif, nefes alan kıyafetler giy.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>🌧️ Yağışlı Günler</h3>
+                    <p>Şemsiye almayı unutma! Çocuksu yanın için su çizmeleriyle dışarı çık 💕</p>
+                </div>
+                <div class="tip-card">
+                    <h3>❄️ Soğuk Günler</h3>
+                    <p>Sıcak çay ve kazak! Cozy bir ortamda arkadaşlarınla zaman geçir.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>💨 Rüzgarlı Günler</h3>
+                    <p>Saçını topla ve açık havada spor yap. Uçurtma şenliğine gitme şansı! 🪁</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Default Location Tips -->
+    <section class="info-section">
+        <div class="container">
+            <h3>📍 Konum Bilgisi</h3>
+            <p>Sayfayı ilk açtığında otomatik olarak sizin bulunduğunuz konumun hava durumunu göstereceğiz. Ayrıca herhangi bir şehri arayarak o şehrin havasını öğrenebilirsin! 🌙✨</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>🌙 Dreamy Weather © 2024 | Powered by Open-Meteo API ✨💕</p>
+            <p>Tüm veriler gerçek zamanlı olarak güncelleniyor</p>
+        </div>
+    </footer>
+
+    <script src="weather-script.js"></script>
+</body>
+</html>
